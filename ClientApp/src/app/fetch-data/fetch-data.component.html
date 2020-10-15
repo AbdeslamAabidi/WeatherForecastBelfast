@@ -1,0 +1,23 @@
+<h1 id="tableLabel">Weather forecast: Belfast</h1>
+
+<!--<p>This component demonstrates fetching data from the server.</p>-->
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>State</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.applicable_date }}</td>
+      <td>{{ forecast.weather_state_name }}</td>
+      <td><img src="{{ 'https://www.metaweather.com/static/img/weather/png/' + forecast.weather_state_abbr + '.png'}}" alt="{forecast.weather_state_name}" style="width:32px"></td>
+    </tr>
+  </tbody>
+</table>
+
